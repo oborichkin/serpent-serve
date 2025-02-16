@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package serpent;
+
+message Empty {}
+
+message ArgsKwargs {
+    optional string args = 1;
+    optional string kwargs = 2;
+}
+
+message MethodCall {
+    string method = 1;
+    ArgsKwargs argsKwargs = 2;
+}
+
+message Result {
+    optional string value = 1;
+}
+
+message Error {
+    bytes data = 1;
+}
+
+message Response {
+    oneof response {
+        Result result = 1;
+        Error error = 2;
+    }
+}
+
+message SetupResponse {
+    repeated string attributes = 1;
+    repeated string methods = 2;
+}
+
+message Attr {
+    string name = 1;
+}
+
+message AttrValue {
+    string name = 1;
+    string value = 2;
+}
+
+service Serpent {
+    rpc Setup(Empty) returns (SetupResponse) {}
+    rpc Call(MethodCall) returns (Response) {}
+    rpc GetAttr(Attr) returns (Response) {}
+    rpc SetAttr(AttrValue) returns (Response) {}
+}

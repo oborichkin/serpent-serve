@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+
+[project]
+name = "serpent-serve"
+version = "0.1.0"
+description = "A Python web server"
+requires-python = ">=3.8"
+authors = [
+    { name = "Pavel Oborin", email = "oborin.p@gmail.com" }
+]
+dependencies = [
+    "tblib",
+    "grpcio",
+    "grpcio-tools",
+    "protobuf"
+]
+
+[project.urls]
+Homepage = "https://github.com/oborichkin/serpent-serve"
+
+[tool.hatch.build.targets.wheel]
+packages = [
+    "serpent_serve"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest"
+]

@@ -1,0 +1,6 @@
+.venv
+.dev-venv-initialized
+.vscode
+Makefile.venv
+*.pyc
+__pycache__
