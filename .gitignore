@@ -4,3 +4,4 @@
 Makefile.venv
 *.pyc
 __pycache__
+/dist

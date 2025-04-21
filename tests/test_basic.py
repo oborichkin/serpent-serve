@@ -30,7 +30,6 @@ def test_attr_setter(client: GenericClass, instance: GenericClass):
 @pytest.mark.parametrize("exception,method", [
     (Exception, "raises_exception"),
     (ValueError, "raises_value_error"),
-    (Exception, "raises_custom_error"),
     (CustomError, "raises_custom_error"),
 ])
 def test_raise_exception(client: GenericClass, exception, method):
